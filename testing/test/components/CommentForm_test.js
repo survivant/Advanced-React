@@ -12,15 +12,36 @@ describe('CommentForm', () => {
     expect(component).to.exist;
   });
 
-  it('should have the class name comment-box', () => {
-    expect(component).to.have.class('comment-box');
+  it('has the class name comment-form', () => {
+    expect(component).to.have.class('comment-form');
   });
 
-  it('should have a textarea', () => {
+  it('has a textarea', () => {
     expect(component.find('textarea')).to.exist;
   });
 
-  it('should have a button', () => {
+  it('has a button', () => {
     expect(component.find('button')).to.exist;
+  });
+
+  describe('textarea', () => {
+    let   area;
+    const test_text = 'new comment';
+
+    beforeEach(() => {
+      area = component.find('textarea');
+
+      area.simulate('change', test_text);
+    });
+
+    it('shows text that is entered', () => {
+      expect(area).to.have.value(test_text);
+    });
+
+    it('is cleared on submission', () => {
+      component.simulate('submit');
+
+      expect(area).to.have.value('');
+    });
   });
 });
