@@ -30,11 +30,11 @@ export class CommentForm extends Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    // The way I learnt previously
+    // The way I learnt previously with connect()
     // const { dispatch } = this.props;
     // dispatch(actions.saveComment(this.state.comment));
 
-    // His way
+    // His way, using the connect(null, actions) below
     this.props.saveComment(this.state.comment);
 
     this.setState({ comment: '' });
