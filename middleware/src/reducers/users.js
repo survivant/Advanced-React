@@ -3,7 +3,7 @@ import { FETCH_USERS }     from '../actions/types.js';
   export default function (state = [], action) {
     switch(action.type) {
       case FETCH_USERS:
-        return[...state, ...action.users];
+        return[...state, ...action.users.data];
 
       default:
         return state;
