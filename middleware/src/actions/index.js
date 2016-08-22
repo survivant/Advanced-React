@@ -1,11 +1,9 @@
+import axios            from 'axios';
+
 import { FETCH_USERS }  from './types';
 
 export function fetchUsers(users) {
-  return { type: FETCH_USERS, users: [
-    { name: 'Julian' },
-    { name: 'Jane' },
-    { name: 'Fred' },
-    { name: 'Alex' },
-    { name: 'Jim' }
-  ] };
+  const request = axios.get('https://jsonplaceholder.typicode.com/users');
+
+  return { type: FETCH_USERS, users: request };
 };
