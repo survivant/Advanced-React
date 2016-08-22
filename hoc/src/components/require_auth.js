@@ -8,7 +8,8 @@ export default function(ComposedComponent) {
       router: React.PropTypes.object
     };
 
-    // This is the key here, return to the root if not authenticated
+    // This is the key here, return to the root if not authenticated when
+    // we are first going to be rendered.
     componentWillMount() {
       if(!this.props.authenticated) {
         this.context.router.push('/');
@@ -23,8 +24,6 @@ export default function(ComposedComponent) {
     }
 
     render() {
-//      console.log('Authenticated:', this.props.authenticated);
-
       return <ComposedComponent {...this.props} />
     }
   }
