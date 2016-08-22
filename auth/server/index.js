@@ -1,13 +1,18 @@
 // Starting point for application
 
-const express = require('express');
-const http    = require('http');
-const parser  = require('body-parser');
-const morgan  = require('morgan');
+const express   = require('express');
+const http      = require('http');
+const parser    = require('body-parser');
+const morgan    = require('morgan');
+const mongoose  = require('mongoose');
 
-const router  = require('./router');
+const router    = require('./router');
 
 const app = express();
+
+// DB setup
+
+mongoose.connect('mongodb://localhost:auth/auth');
 
 // App setup
 
