@@ -6,11 +6,10 @@ const config  = require('../config')
 function tokenForUser(user) {
   const timestamp = new Date().getTime();
 
-  return jwt.encode({
-    sub: user.id,
-    iat: timestamp
-  }, config.secret);
+  return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
+
+// Create a new user and return a token for them
 
 exports.signup = function(req, res, next) {
   // console.log(req.body);
@@ -49,4 +48,10 @@ exports.signup = function(req, res, next) {
       res.send({ token: tokenForUser(newUser) });
     });
   });
+};
+
+// Return a token for a correctly authenticated user
+
+exports.login = function(req, res, next) {
+  res.send({ token: tokenForUser(req.user) });
 };
