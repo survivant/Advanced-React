@@ -24,21 +24,13 @@ I have confused myself, and I have seen lecturers / co-workers confuse
 themselves and me when there is the slip of the tongue between talking
 about signin and signup. e.g.
 
-```
-server/controllers/authentication
-  .
-  .
-  exports.login = function(req, res, next) {
-  .
-  .
+* server authentication.signin -> authentication.login
+* server router /signin, requireSignin -> /login, requireLogin
+* client index /signin -> /login
+* client Signin -> LoginForm
+* client actions signinUser -> loginUser
+* ... and so on
 
-server/router.js
-  .
-  .
-  app.post('/login',  requireSignin, Authentication.login)
-  .
-  .
-```
 
 ## Git client
 
