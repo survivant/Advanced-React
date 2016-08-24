@@ -9,20 +9,17 @@ export function loginUser({ email, password }) {
   return function(dispatch) {
     // Submit email and password to server login path
 
-    axios.post(`${ROOT_URL}/login`, { email, password }).then(response => {
-      // Update state to indicate that the user is authenticated
-      // Save the returned JWT
-      // Redirect to /feature
+    axios.post(`${ROOT_URL}/login`, { email, password })
+      .then(response => {
+        // Update state to indicate that the user is authenticated
+        // Save the returned JWT
+        // Redirect to /feature
 
-      dispatch({ type: AUTH_USER });
-      localStorage.setItem('token', response.data.token);
-      browserHistory.push('/feature');
-    }).catch(() => {
-      // - Show an error to the user
-
-      console.log('Login error');
-      dispatch(authError('Invalid email address or password'));
-    });
+        dispatch({ type: AUTH_USER });
+        localStorage.setItem('token', response.data.token);
+        browserHistory.push('/feature');
+      })
+      .catch(() => dispatch(authError('Invalid email address or password')));
   };
 }
 
@@ -36,18 +33,17 @@ export function signupUser({ email, password }) {
   return function(dispatch) {
     // Submit email and password to server signup path
 
-    axios.post(`${ROOT_URL}/signup`, { email, password }).then(response => {
-      // Update state to indicate that the user is authenticated
-      // Save the returned JWT
-      // Redirect to /feature
+    axios.post(`${ROOT_URL}/signup`, { email, password })
+      .then(response => {
+        // Update state to indicate that the user is authenticated
+        // Save the returned JWT
+        // Redirect to /feature
 
-      dispatch({ type: AUTH_USER });
-      localStorage.setItem('token', response.data.token);
-      browserHistory.push('/feature');
-    }).catch(error => {
-      console.log(error.response);
-      dispatch(authError(error.response.data.error));
-    });
+        dispatch({ type: AUTH_USER });
+        localStorage.setItem('token', response.data.token);
+        browserHistory.push('/feature');
+      })
+      .catch(error => dispatch(authError(error.response.data.error)));
   };
 }
 

@@ -25,14 +25,14 @@ exports.signup = function(req, res, next) {
 
   // See if a user with the given email already exists
 
-  User.findOne({ email: email }, function(err, foundUser) {
+  User.findOne({ email: email }, (err, foundUser) => {
     // Pass on error(s)
     if(err) { return next(err); }
 
     // Return an error if so
 
     if(foundUser) {
-      return res.status(409).send({ error: "That email address is already in use." });    // Conflicting user
+      return res.status(409).send({ error: "That email address is already in use" });    // Conflicting user
     }
 
     // Create and save a new user record
