@@ -16,13 +16,13 @@ const localLogin   = new LocalStrategy(localOptions, function(email, password, d
   // Otherwise call done() with no user
 
   User.findOne({ email: email }, function(err, user) {
-    if(err)   { return done(err, false); }    // Error occurred in lookup
+    if(err)   { return done(err); }           // Error occurred in lookup
     if(!user) { return done(null, false); }   // User doesn't exist
 
     // User exists, has the right password been entered?
 
     user.comparePassword(password, function(err, matched) {
-      if(err)       { return done(err, false); }  // Error comparing
+      if(err)       { return done(err); }         // Error comparing
       if(!matched)  { return done(null, false); } // Passwords don't match
 
       return done(null, user);
