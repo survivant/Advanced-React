@@ -1,7 +1,7 @@
 import { browserHistory } from 'react-router';
 import axios              from 'axios';
 
-import { AUTH_USER }      from './types';
+import { AUTH_USER, AUTH_ERROR }  from './types';
 
 const ROOT_URL = 'http://localhost:3090';
 
@@ -11,19 +11,21 @@ export function loginUser({ email, password }) {
 
     axios.post(`${ROOT_URL}/login`, { email, password }).then(response => {
       // Update state to indicate that the user is authenticated
-
-      dispatch({ type: AUTH_USER });
-
       // Save the returned JWT
-
-      localStorage.setItem('token', response.data.token);
-      
       // Redirect to /feature
 
+      dispatch({ type: AUTH_USER });
+      localStorage.setItem('token', response.data.token);
       browserHistory.push('/feature');
     }).catch(() => {
-      // If bad
       // - Show an error to the user
+
+      console.log('Login error');
+      dispatch(authError('Invalid email address or password'));
     });
   };
+}
+
+export function authError(error) {
+  return { type: AUTH_ERROR, error }
 }
