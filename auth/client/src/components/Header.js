@@ -26,12 +26,23 @@ class Header extends Component {
     }
   }
 
+  renderFeatureLink() {
+    if(this.props.logged_in) {
+      return (
+        <li className="nav-item">
+          <Link className="nav-link" to="/feature">Feature</Link>
+        </li>
+      );
+    }
+  }
+
   render() {
     return (
-      <nav className="navbar navbar-light bg-faded">
+      <nav className="navbar navbar-dark bg-primary">
         <Link to="/" className="navbar-brand">Authentication</Link>
         <ul className="nav navbar-nav">
           {this.renderInOutLinks()}
+          {this.renderFeatureLink()}
         </ul>
       </nav>
     );
