@@ -26,9 +26,12 @@ about signin and signup. e.g.
 
 * server authentication.signin -> authentication.login
 * server router /signin, requireSignin -> /login, requireLogin
+
 * client index /signin -> /login
+* client index /signout -> /logout
 * client Signin -> LoginForm
-* client actions signinUser -> loginUser
+* client Signout -> Logout
+* client actions signinUser, signoutUser -> loginUser, logoutUser
 * ... and so on
 
 
