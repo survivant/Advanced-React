@@ -5,7 +5,7 @@ This is the code from the Advanced React course by Stephen Grider at
 
 ## Progress
 
-Completed section 6 - Authentication Server
+Working on section 7 - Auth client
 
 ## Starting point
 
@@ -36,7 +36,8 @@ about signin and signup. e.g.
 
 ## axios v0.13.x
 
-Axios has changed the way that errors are caught, so in signupUser90 it needs the following
+Axios has changed the way that errors are caught, so in the action creator signupUser()
+it needs the following
 
 ```
   .
