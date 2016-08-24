@@ -2,3 +2,10 @@
 .signup-form-container {
   margin-top: 2rem;
 }
+
+.error {
+  margin-top: 0.25rem;
+  background: #FFCDD2;
+  padding: 0.25rem 1rem;
+  color: #B71C1C;
+}
