@@ -6,7 +6,7 @@ import * as actions           from '../../actions'
 class LoginForm extends Component {
   handleFormSubmit({ email, password }) {
     // Log the user in
-    console.log('Logging in: ', email, password);
+//    console.log('Logging in: ', email, password);
     this.props.loginUser({ email, password });
   }
 
@@ -25,6 +25,8 @@ class LoginForm extends Component {
 
     return (
       <div className="login-form-container row">
+        <h2 className="text-sm-center">Log in for features</h2>
+
         <form className="col-sm-6 offset-sm-3" onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           <div className="form-group">
             <input {...email} type="email" className="form-control" placeholder="Email address"/>

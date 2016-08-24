@@ -1,3 +1,4 @@
-.login-form-container {
+.login-form-container,
+.signup-form-container {
   margin-top: 2rem;
 }
