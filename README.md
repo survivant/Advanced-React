@@ -34,8 +34,25 @@ about signin and signup. e.g.
 * client actions signinUser, signoutUser -> loginUser, logoutUser
 * ... and so on
 
+## axios v0.13.x
 
-## Git client
+Axios has changed the way that errors are caught, so in signupUser90 it needs the following
+
+```
+  .
+  .
+  })
+  .catch(error => dispatch(authError(error.response.data.error)));
+```
+
+instead of the code that Stephen writes, which is
+
+```
+  .catch(response => dispatch(authError(response.data.error)));
+```
+
+
+### Git client
 
 I have used Git at the command-line for almost 10 years.
 Over that time, I have tried many different graphical shells for Git,
@@ -45,7 +62,7 @@ without finding one that was easier and nicer to use than the command-line
 I have now found that [GitKraken](https://www.gitkraken.com) is an excellent
 Git shell and would advise using it to everyone.
 
-## Questions
+### Questions
 
 If you have any questions about this repository, or any others of mine, please
 don't hesitate to contact me.
