@@ -2,6 +2,7 @@ import { browserHistory } from 'react-router';
 import axios              from 'axios';
 
 import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, SIGNUP_USER }  from './types';
+import { SET_MESSAGE }                                      from './types';
 
 const ROOT_URL = 'http://localhost:3090';
 
@@ -49,4 +50,18 @@ export function signupUser({ email, password }) {
 
 export function authError(error) {
   return { type: AUTH_ERROR, error }
+}
+
+export function fetchMessage() {
+  return function(dispatch) {
+    axios.get(ROOT_URL, { headers: { authorization: localStorage.getItem('token') } })
+      .then(response => {
+        console.log(response)
+        dispatch({ type: SET_MESSAGE, message: response.data.message })
+      })
+      .catch(error => {
+        console.log(error.message);
+        console.log(error.response);
+      })
+  }
 }
