@@ -42,7 +42,12 @@ export default function(ComposedComponent) {
 // import Authentication    from '...';
 // import ComponentToWrap   from '...';
 
-// const ComposedComponent = Authentication(ComponentToWrap);
+// Either
+//   const ComposedComponent = Authentication(ComponentToWrap);
 
-// <ComposedComponent />
+//   <ComposedComponent />
+
+// or
+
+//  <Route to="/wherever" component={Authentication(ComponentToWrap)} />
 ///////////////////////////////////////////////////////////////////////////
